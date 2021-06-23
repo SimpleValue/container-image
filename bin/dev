@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -it -p 3000:3000 --name dev-sv-container --rm --workdir="/container-image" -v $PWD:/container-image babashka/babashka:0.4.6 bb nrepl-server "0.0.0.0:3000"
