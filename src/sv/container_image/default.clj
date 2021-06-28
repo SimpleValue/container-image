@@ -54,6 +54,12 @@
                   "tmux"
                   "nano"
                   "procps"
+                  "htop"
+                  "git"
+                  "ssh-client"
+                  "iputils-ping"
+                  "dnsutils"
+                  "socat"
                   ]})
 
 (defn install
