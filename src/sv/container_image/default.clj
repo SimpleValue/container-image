@@ -67,7 +67,7 @@
   (concat
    (apt/init params)
    (fonts/install params)
-   [(apt/install params)]
+   [(apt/install default-params)]
    (clojure/install params))
   )
 
@@ -75,7 +75,7 @@
   ([params]
    (process/execute! (install params)))
   ([]
-   (install! default-params)))
+   (install! {})))
 
 (defn -main
   [& args]
