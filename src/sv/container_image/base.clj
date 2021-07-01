@@ -1,4 +1,4 @@
-(ns sv.container-image.default
+(ns sv.container-image.base
   (:require [sv.container-image.apt :as apt]
             [sv.container-image.fonts :as fonts]
             [sv.container-image.clojure :as clojure]
