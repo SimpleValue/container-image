@@ -1,6 +1,5 @@
 (ns sv.container-image.dev
-  (:require [sv.container-image.default :as default]
-            [sv.container-image.yarn :as yarn]
+  (:require [sv.container-image.yarn :as yarn]
             [sv.container-image.gcloud :as gcloud]
             [sv.container-image.node :as node]
             [sv.container-image.datomic :as datomic]
@@ -9,7 +8,6 @@
 (defn install
   [params]
   (concat
-   (default/install params)
    (yarn/install params)
    (gcloud/install params)
    (node/install params)
