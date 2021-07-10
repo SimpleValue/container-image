@@ -66,8 +66,8 @@
   [params]
   (concat
    (apt/init params)
-   (fonts/install params)
    [(apt/install default-params)]
+   (fonts/install params)
    (clojure/install params))
   )
 
