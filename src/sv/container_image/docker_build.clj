@@ -12,9 +12,9 @@
   (let [image-tag (str image
                        ":"
                        (new-tag))]
-    @(process/process "docker" "build" "--target" target "-t" image-tag ".")
+    @(process/process ["docker" "build" "--target" target "-t" image-tag "."])
     (spit (str target
                "-latest")
           image-tag)
-    @(process/process "docker" "push" image-tag)
+    @(process/process ["docker" "push" image-tag])
     ))
