@@ -11,10 +11,15 @@
   [{:keys [image target]}]
   (let [image-tag (str image
                        ":"
-                       (new-tag))]
-    @(process/process ["docker" "build" "--target" target "-t" image-tag "."])
+                       (new-tag))
+        execute! (fn [args]
+                   @(process/process
+                     args
+                     {:out :inherit
+                      :err :inherit}))]
+    (execute! ["docker" "build" "--target" target "-t" image-tag "."])
     (spit (str target
                "-latest")
           image-tag)
-    @(process/process ["docker" "push" image-tag])
+    (execute! ["docker" "push" image-tag])
     ))
