@@ -62,6 +62,7 @@
                   "iputils-ping"
                   "dnsutils"
                   "socat"
+                  "ffmpeg"
                   ]})
 
 (defn install
