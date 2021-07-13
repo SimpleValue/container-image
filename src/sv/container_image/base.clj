@@ -1,8 +1,10 @@
-(ns sv.container-image.default
+(ns sv.container-image.base
   (:require [sv.container-image.apt :as apt]
             [sv.container-image.fonts :as fonts]
             [sv.container-image.clojure :as clojure]
-            [sv.container-image.process :as process]))
+            [sv.container-image.cloud-profiler :as cloud-profiler]
+            [sv.container-image.process :as process]
+            ))
 
 (def default-params
   {:apt/packages ["dumb-init"
@@ -54,6 +56,13 @@
                   "tmux"
                   "nano"
                   "procps"
+                  "htop"
+                  "git"
+                  "ssh-client"
+                  "iputils-ping"
+                  "dnsutils"
+                  "socat"
+                  "ffmpeg"
                   ]})
 
 (defn install
@@ -61,15 +70,17 @@
   (concat
    (apt/init params)
    (fonts/install params)
-   [(apt/install params)]
-   (clojure/install params))
+   [(apt/install default-params)]
+   (clojure/install params)
+   (cloud-profiler/install params)
+   )
   )
 
 (defn install!
   ([params]
    (process/execute! (install params)))
   ([]
-   (install! default-params)))
+   (install! {})))
 
 (defn -main
   [& args]
