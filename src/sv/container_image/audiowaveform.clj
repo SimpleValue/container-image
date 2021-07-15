@@ -4,6 +4,6 @@
 (defn install
   [params]
   [["add-apt-repository" "-y" "ppa:chris-needham/ppa"]
-   (apt/update)
+   (apt/update params)
    (apt/install {:apt/packages ["audiowaveform"]})
    ])
