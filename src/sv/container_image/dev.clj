@@ -3,11 +3,14 @@
             [sv.container-image.gcloud :as gcloud]
             [sv.container-image.node :as node]
             [sv.container-image.datomic :as datomic]
-            [sv.container-image.process :as process]))
+            [sv.container-image.process :as process]
+            [sv.container-image.kubectl :as kubectl]
+            ))
 
 (defn install
   [params]
   (concat
+   (kubectl/install params)
    (yarn/install params)
    (gcloud/install params)
    (node/install params)
