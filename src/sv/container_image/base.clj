@@ -63,6 +63,7 @@
                   "dnsutils"
                   "socat"
                   "ffmpeg"
+                  "file"
                   ]})
 
 (defn install
