@@ -4,15 +4,15 @@
 (defn install
   [_]
   [["add-apt-repository" "-y" "ppa:ondrej/php"]
-   (apt/install {:apt/packages ["php7.3"
-                                "php7.3"
-                                "php7.3-curl"
-                                "php7.3-gd"
-                                "php7.3-mbstring"
-                                "php7.3-zip"
-                                "php7.3-json"
-                                "php7.3-common"
-                                "php7.3-bcmath"]})
+   (apt/install {:apt/packages ["php7.4"
+                                "php7.4"
+                                "php7.4-curl"
+                                "php7.4-gd"
+                                "php7.4-mbstring"
+                                "php7.4-zip"
+                                "php7.4-json"
+                                "php7.4-common"
+                                "php7.4-bcmath"]})
    ["php" "-r" "copy('https://getcomposer.org/installer', 'composer-setup.php');"]
    ["php" "composer-setup.php" "--install-dir=/usr/local/bin" "--filename=composer"]
    ["rm" "composer-setup.php"]
