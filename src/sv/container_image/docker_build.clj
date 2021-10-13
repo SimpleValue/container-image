@@ -8,15 +8,17 @@
            (java.time.LocalDateTime/now)))
 
 (defn build!
-  [{:keys [image target]}]
+  [{:keys [image target dir]}]
   (let [image-tag (str image
                        ":"
                        (new-tag))
         execute! (fn [args]
                    @(process/process
                      args
-                     {:out :inherit
-                      :err :inherit}))]
+                     (cond-> {:out :inherit
+                              :err :inherit}
+                       dir
+                       (assoc :dir dir))))]
     (execute! ["docker" "build" "--target" target "-t" image-tag "."])
     (spit (str target
                "-latest")
