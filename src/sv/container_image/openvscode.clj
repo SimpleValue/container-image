@@ -31,6 +31,6 @@
          (str "echo "
               "'fs.inotify.max_user_watches="
               max-user-watches
-              "' >> /etc/sysctl.conf")]])
+              "' >> /etc/sysctl.conf && sysctl -p")]])
      )
     ))
