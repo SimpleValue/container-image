@@ -6,6 +6,7 @@
             [sv.container-image.process :as process]
             [sv.container-image.kubectl :as kubectl]
             [sv.container-image.terraform :as terraform]
+            [sv.container-image.openvscode :as openvscode]
             ))
 
 (defn install
@@ -17,6 +18,7 @@
    (gcloud/install params)
    (node/install params)
    (datomic/install params)
+   (openvscode/install params)
    ))
 
 (defn install!
