@@ -52,7 +52,6 @@
                   "wget"
                   "xvfb"
                   "curl"
-                  "openjdk-11-jre-headless"
                   "tmux"
                   "nano"
                   "procps"
