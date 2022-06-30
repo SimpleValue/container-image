@@ -4,6 +4,5 @@
 (defn install
   [params]
   [(apt/update params)
-   (apt/install {:apt/packages ["rlwrap"
-                                "openjdk-11-jre-headless"]})
+   (apt/install {:apt/packages ["rlwrap"]})
    ["bash" "-c" "curl https://download.clojure.org/install/linux-install-1.10.3.1040.sh | bash"]])
