@@ -7,6 +7,7 @@
             [sv.container-image.kubectl :as kubectl]
             [sv.container-image.terraform :as terraform]
             [sv.container-image.openvscode :as openvscode]
+            [sv.container-image.clj-kondo :as clj-kondo]
             ))
 
 (defn install
@@ -19,6 +20,7 @@
    (node/install params)
    (datomic/install params)
    (openvscode/install params)
+   (clj-kondo/install params)
    ))
 
 (defn install!
