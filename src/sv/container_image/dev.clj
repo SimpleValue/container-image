@@ -8,6 +8,7 @@
             [sv.container-image.terraform :as terraform]
             [sv.container-image.openvscode :as openvscode]
             [sv.container-image.clj-kondo :as clj-kondo]
+            [sv.container-image.github-actions-runner :as github-actions-runner]
             ))
 
 (defn install
@@ -21,6 +22,7 @@
    (datomic/install params)
    (openvscode/install params)
    (clj-kondo/install params)
+   (github-actions-runner/install params)
    ))
 
 (defn install!
