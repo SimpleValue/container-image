@@ -12,7 +12,8 @@
                                 "php7.3-zip"
                                 "php7.3-json"
                                 "php7.3-common"
-                                "php7.3-bcmath"]})
+                                "php7.3-bcmath"
+                                "php7.3-gmp"]})
    ["php" "-r" "copy('https://getcomposer.org/installer', 'composer-setup.php');"]
    ["php" "composer-setup.php" "--install-dir=/usr/local/bin" "--filename=composer"]
    ["rm" "composer-setup.php"]
