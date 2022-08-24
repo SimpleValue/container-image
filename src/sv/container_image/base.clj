@@ -8,6 +8,7 @@
 
 (def default-params
   {:apt/packages ["dumb-init"
+                  "aac-enc"
                   "libappindicator3-1"
                   "pdftk"
                   "unzip"
