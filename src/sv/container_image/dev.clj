@@ -9,6 +9,7 @@
             [sv.container-image.openvscode :as openvscode]
             [sv.container-image.clj-kondo :as clj-kondo]
             [sv.container-image.github-actions-runner :as github-actions-runner]
+            [sv.container-image.maven :as maven]
             ))
 
 (defn install
@@ -19,6 +20,7 @@
    (yarn/install params)
    (gcloud/install params)
    (node/install params)
+   (maven/install params)
    (datomic/install params)
    (openvscode/install params)
    (clj-kondo/install params)
