@@ -24,5 +24,5 @@
       (str "apache-maven-"
            version)
       "/opt/maven"]
-     [spit "/etc/environment" "\nPATH=$PATH:/opt/maven/bin/\n" :append true]
+     [spit "/etc/profile.d/maven-path.sh" "export PATH=$PATH:/opt/maven/bin/" :append true]
      ]))
