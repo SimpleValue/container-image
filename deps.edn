@@ -1,1 +1,9 @@
-{:deps {babashka/process {:mvn/version "0.0.2"}}}
+{:aliases
+ {:repl/dev
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
+                cider/cider-nrepl          {:mvn/version "0.26.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--bind" "0.0.0.0"
+                "--port" "4000"
+                "--middleware" "[cider.nrepl/cider-middleware]"]}}
+ :deps {babashka/process {:mvn/version "0.0.2"}}}
