@@ -4,6 +4,7 @@
             [sv.container-image.clojure :as clojure]
             [sv.container-image.cloud-profiler :as cloud-profiler]
             [sv.container-image.process :as process]
+            [sv.container-image.chrome :as chrome]
             ))
 
 (def default-params
@@ -74,6 +75,7 @@
    [(apt/install default-params)]
    (clojure/install params)
    (cloud-profiler/install params)
+   (chrome/install params)
    )
   )
 
