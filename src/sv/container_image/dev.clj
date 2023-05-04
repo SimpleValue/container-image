@@ -10,6 +10,7 @@
             [sv.container-image.clj-kondo :as clj-kondo]
             [sv.container-image.github-actions-runner :as github-actions-runner]
             [sv.container-image.maven :as maven]
+            [sv.container-image.redis]
             ))
 
 (defn install
@@ -25,6 +26,7 @@
    (openvscode/install params)
    (clj-kondo/install params)
    (github-actions-runner/install params)
+   (sv.container-image.redis/install params)
    ))
 
 (defn install!
