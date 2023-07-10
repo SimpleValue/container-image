@@ -2,16 +2,14 @@
   "Installs kubectl for Kubernetes.
 
    Based on:
-   https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+   https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
   "
-  (:require [sv.container-image.apt :as apt]))
+  )
 
 (defn install
-  [params]
-  [["curl" "-fsSLo" "/usr/share/keyrings/kubernetes-archive-keyring.gpg" "https://packages.cloud.google.com/apt/doc/apt-key.gpg"]
-
-   ["bash" "-c" "echo \"deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main\" | tee /etc/apt/sources.list.d/kubernetes.list"]
-
-   (apt/update params)
-   (apt/install {:apt/packages ["kubectl"]})
-   ])
+  [_params]
+  (let [version (slurp (java.net.URL. "https://dl.k8s.io/release/stable.txt"))]
+    [["curl" "-LO" (format "https://dl.k8s.io/release/%s/bin/linux/amd64/kubectl"
+                           version)]
+     ["install" "-o" "root" "-g" "root" "-m" "0755" "kubectl" "/usr/local/bin/kubectl"]
+     ]))
