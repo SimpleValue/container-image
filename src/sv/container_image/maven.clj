@@ -9,7 +9,7 @@
   (let [version (or (get-in params
                             [:maven
                              :version])
-                    "3.9.1")
+                    "3.9.3")
         url (str "https://dlcdn.apache.org/maven/maven-3/"
                  version
                  "/binaries/apache-maven-"
