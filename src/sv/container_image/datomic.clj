@@ -3,7 +3,7 @@
 
 (defn datomic-download-url
   [{:keys [version]}]
-  (str "https://my.datomic.com/repo/com/datomic/datomic-pro/"
+  (str "https://datomic-pro-downloads.s3.amazonaws.com/"
        version
        "/datomic-pro-"
        version
@@ -19,8 +19,7 @@
 
 (comment
   (properties-str {:protocol "dev"
-                   :host "localhost"
-                   :license-key "a"})
+                   :host "localhost"})
   )
 
 (defn install
@@ -28,8 +27,6 @@
   (let [datomic (:datomic params)]
     [["wget"
       "-O" "datomic.zip"
-      "--user" (:username datomic)
-      "--password" (:password datomic)
       (datomic-download-url datomic)]
      ["unzip" "datomic.zip"]
      ["mv"
